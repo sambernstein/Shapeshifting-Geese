@@ -2,9 +2,19 @@
 from itertools import permutations
 import csv
 import time
+import argparse
+parser = argparse.ArgumentParser()
 
-# tests all integers up to this integer
-test_until = 10000
+parser.add_argument('start', default=1, type=int,
+              help='Start iterating through and testing integers here.', nargs='?')
+parser.add_argument('stop', type=int,
+              help='Stop testing integers here. If not provided, will continue to infinity.', nargs='?')
+
+args = parser.parse_args()
+
+start_integer = args.start # start testing integers here
+stop_integer = args.stop # tests all integers up to this integer
+
 
 def nPk(n, k):
     numerator = 1.0
@@ -111,9 +121,8 @@ numbers_found_dict = {}
 
 start_time = time.time()
 
-
-
-for i in range(100, test_until): # numbers to be tested
+i = start_integer
+while stop_integer is None or i <= stop_integer:
     
     if i % 1000 == 0:
         print "\n-- "+str(i)+" --"
@@ -136,8 +145,9 @@ for i in range(100, test_until): # numbers to be tested
         for j, k in enumerate(p):
             every_way[h][j] = int(k)
 
-
     mult_combos(i, every_way)
+
+    i += 1
 
 end_time = time.time()
 
