@@ -14,4 +14,4 @@ Search for all goose numbers from 33000 to 100,001:  `python2 find_geese.py 3300
 
 Empirically, it seems there are disproportionately more equal product numbers that start with smaller digits like 1 than start with larger digits like 8 or 9. This makes sense when you consider that there are more rearrangements of the digits of an integer `k` that multiply to smaller numbers (with the same number of digits as `k`) than larger numbers (getting larger numbers requires more specific arrangements than smaller numbers).
 
-One question that remains to be answered is whether the fraction of all positive integers that are shapeshifting goose numbers approaches 1.
+One question that remains to be answered is whether the fraction of all positive integers that are shapeshifting goose numbers approaches 1 in the limit.
